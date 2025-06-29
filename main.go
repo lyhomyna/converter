@@ -48,6 +48,7 @@ func main() {
     server := &server {
 	Handler: handler,
     }
+
     server.Run()
 }
 
