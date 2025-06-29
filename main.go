@@ -124,7 +124,7 @@ func validateParams(queryParams url.Values) *ErrorResponse {
     if err != nil {
 	return &ErrorResponse {
 	    Code: http.StatusBadRequest,
-	    Message: fmt.Sprint("incorrect input value"),
+	    Message: "incorrect input value",
 	}
     }
 

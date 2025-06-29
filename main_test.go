@@ -90,6 +90,29 @@ func TestValidateNotSupportedToParam(t *testing.T) {
     }
 }
 
+func TestValidateIncorrectValue(t *testing.T) {
+    from := "km"
+    to := "mile"
+    value := "one"
+
+    testParams := map[string][]string {
+	"from":{ from },
+	"to":  { to },
+	"value": { value },
+    }
+
+    exp := &ErrorResponse {
+	    Code: http.StatusBadRequest,
+	    Message: "incorrect input value",
+    }
+    act := validateParams(url.Values(testParams))
+
+    if !reflect.DeepEqual(act, exp) {
+	t.Errorf("expected %+v, got %+v", exp, act)
+    }
+}
+
+
 func TestConvertKmToMile(t *testing.T) {
     from := "km"
     to := "mile"
