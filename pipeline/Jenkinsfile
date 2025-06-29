@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    stages {
+	stage('Checkout') {
+	    steps {
+		checkout scm
+	    }
+	}
+	stage('Unit tests') {
+	    steps {
+		sh '/var/jenkins_home/tools/go/bin/go test'
+	    }
+	}
+	stage('Build') {
+	    steps {
+		sh '/var/jenkins_home/tools/go/bin/go build'
+	    }
+	}
+    }
+}
