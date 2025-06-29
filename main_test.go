@@ -12,7 +12,6 @@ func TestValidateOkParams(t *testing.T) {
     to := "mile"
     value := "11"
 
-    // [string][]string
     testParams := map[string][]string {
 	"from":{ from },
 	"to":  { to },
@@ -52,7 +51,6 @@ func TestValidateNotSupportedFromParam(t *testing.T) {
     to := "yard"
     value := "5"
 
-    // [string][]string
     testParams := map[string][]string {
 	"from":{ from },
 	"to":  { to },
@@ -75,7 +73,6 @@ func TestValidateNotSupportedToParam(t *testing.T) {
     to := "feet"
     value := "5"
 
-    // [string][]string
     testParams := map[string][]string {
 	"from":{ from },
 	"to":  { to },
