@@ -34,10 +34,11 @@ var units = map[string]float64 {
 
 func (s *server) Run() { 
     s.http = &http.Server {
-	Addr: "8081",
+	Addr: ":8081",
 	Handler: s.Handler,
     }
 
+    log.Println("Server is running on: ':8081'")
     if err:= s.http.ListenAndServe(); err != nil {
 	log.Println("Cannot start HTTP server.", err.Error())
     }
@@ -74,6 +75,7 @@ func handleConvert(w http.ResponseWriter, req *http.Request) {
 
 	rb, _ := json.Marshal(err)
 	w.Write(rb)
+	return
     }
 
     // do actual convert
